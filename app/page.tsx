@@ -1,4 +1,8 @@
 
+"use client";
+
+import { useState, useCallback } from "react";
+
 import Hero from "@/components/home/hero";
 import SoftwareAccordian from "@/components/home/softwareAccordian";
 import TrulyMobile from "@/components/home/truly-mobile";
@@ -10,10 +14,26 @@ import Recommended from "@/components/home/recommended";
 import DownloadTemplate from "@/components/home/download-template";
 import HroneServiceCities from "@/components/home/hrone-service-cities";
 import Faqs from "@/components/home/Faqs";
+import PopupForm from "@/components/home/popup-form";
+import TopBar from "@/components/home/top-bar";
+import MainHeader from "@/components/home/main-header";
+
 export default function Home() {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const openPopup = useCallback(() => {
+    setIsPopupOpen(true);
+  }, []);
+
+  const closePopup = useCallback(() => {
+    setIsPopupOpen(false);
+  }, []);
+
   return (
     <>
-      <Hero />
+      <TopBar onOpenPopup={openPopup} />
+      <MainHeader onOpenPopup={openPopup} />
+      <Hero onOpenPopup={openPopup} />
       <SoftwareAccordian />
       <TrulyMobile />
       <CustomerTestimonial />
@@ -24,6 +44,7 @@ export default function Home() {
       <DownloadTemplate />
       <HroneServiceCities />
       <Faqs />
+      <PopupForm isOpen={isPopupOpen} onClose={closePopup} />
     </>
   );
 }

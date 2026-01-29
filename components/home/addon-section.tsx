@@ -45,7 +45,7 @@ export default function AddonSection() {
                 </div>
             </div>
             <div className="options-cta-div load-more-btn" data-aos="fade-up" data-aos-delay="100">
-                    <button id="load-more-addon" className="green-btn text-center">View All Addon</button>
+                    <a href="https://hrone.cloud/add-ons" id="load-more-addon" className="green-btn text-center">View All Addon</a>
             </div> 
 
         </div>

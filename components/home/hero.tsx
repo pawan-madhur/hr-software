@@ -1,8 +1,16 @@
+"use client";
+
 import Image from "next/image";
 import star from "@/public/images/star.png";
 import heroDesktop from "@/public/images/hero-desktop.png";
-export default function Hero() {
+
+type HeroProps = {
+    onOpenPopup: () => void;
+};
+
+export default function Hero({ onOpenPopup }: HeroProps) {
     return (
+        <>
         <section className="software_new_banner">
         <div className="container container_cus">
             <div className="software_new_banner_main">
@@ -14,8 +22,18 @@ export default function Hero() {
                     <h1>Automate HR. Empower Employees. Simplify Work.</h1>
                     <p>Trusted by 2000+ companies and 350,000+ employees to manage Core HR, Payroll, Time, and Performance — now powered by One AI.</p>
                         <div>
-                            <a href="#" className="sft_btn popnew" data-id="">Get Started</a>
-                            <a href="#" className="sft_btn sft_btn1">Watch Demo</a>
+                            <a
+                                href="#"
+                                className="sft_btn popnew"
+                                data-id=""
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    onOpenPopup();
+                                }}
+                            >
+                                Get Started
+                            </a>
+                            {/* <a href="#" className="sft_btn sft_btn1">Watch Demo</a> */}
                         </div>
                 </div>
                 <div className="software_banner_right">
@@ -24,5 +42,6 @@ export default function Hero() {
             </div>
         </div>
     </section>
+    </>
     );
   }

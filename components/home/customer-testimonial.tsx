@@ -30,38 +30,29 @@ export default function CustomerTestimonial() {
     const testimonials: Testimonial[] = [
         {
             id: 1,
-            companyLogo: "/images/bikanervala.png",
-            testimonialText: "Easy to use, flexible with no constraints and able to focus more on strategy",
-            customerName: "Lorem Ipsum",
-            designation: "Director, Bikanervala",
-            profileImage: "/images/director-bikanervala.png",
-            rating: 5
+            companyLogo: "/images/AHH.webp",
+            testimonialText: "Total digital experience with easy-to- configure & user-friendly one-stop HRMS solution",
+            customerName: "Kumar Krishnaswamy",
+            designation: "Head HR, AHH",
+            profileImage: "/images/AHH_director.webp",
+            rating: 5 
         },
         {
             id: 2,
-            companyLogo: "/images/bikanervala.png",
-            testimonialText: "Easy to use, flexible with no constraints and able to focus more on strategy",
-            customerName: "Lorem Ipsum",
-            designation: "Director, Bikanervala",
-            profileImage: "/images/director-bikanervala.png",
+            companyLogo: "/images/Utthunga.webp",
+            testimonialText: "HROne acts as a bridge between employees, increased 60-70% productivity",
+            customerName: "Amulya MS",
+            designation: "HR Head, Utthunga",
+            profileImage: "/images/Head-Utthunga.webp",
             rating: 5
         },
         {
             id: 3,
-            companyLogo: "/images/bikanervala.png",
-            testimonialText: "Easy to use, flexible with no constraints and able to focus more on strategy",
-            customerName: "Lorem Ipsum",
-            designation: "Director, Bikanervala",
-            profileImage: "/images/director-bikanervala.png",
-            rating: 5
-        },
-        {
-            id: 4,
-            companyLogo: "/images/bikanervala.png",
-            testimonialText: "Easy to use, flexible with no constraints and able to focus more on strategy",
-            customerName: "Lorem Ipsum",
-            designation: "Director, Bikanervala",
-            profileImage: "/images/director-bikanervala.png",
+            companyLogo: "/images/VindhyaTelelinksLtd.webp",
+            testimonialText: "1500+ employees across 19 states- improve people analytics",
+            customerName: "Vinod Sharma",
+            designation: "HR Head, Vindhya Telelinks Ltd.",
+            profileImage: "/images/vinod.webp",
             rating: 5
         }
     ];

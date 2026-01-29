@@ -67,7 +67,7 @@ export default function IntegrationSection() {
                 </div>
             </div>
           <div className="options-cta-div">
-            <a href="#" className="green-btn">See All Integrations</a>
+            <a href="https://hrone.cloud/integration/" className="green-btn">See All Integrations</a>
           </div>
           
 
