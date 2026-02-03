@@ -290,63 +290,384 @@ export default function MainHeader({ onOpenPopup }: MainHeaderProps) {
                   >
                     <div className="container_cus">
                       <div className="hrresourec_dropdown_main">
+                        {/* LEFT SIDE */}
                         <div className="hrresourec_dropdown_left">
                           <div className="dropdown_group">
                             <h2>Learn</h2>
                             <ul>
                               <li>
-                                <a href={`${BASE_URL}/blog`}>
+                                <a href="https://hrone.cloud/blog">
                                   <img src="https://hrone.cloud/wp-content/uploads/2025/11/maki_arrow-1.svg" alt="" />
                                   <span>Blogs</span>
                                 </a>
                               </li>
                               <li>
-                                <a href={`${BASE_URL}/guide`}>
+                                <a href="https://hrone.cloud/guide">
                                   <img src="https://hrone.cloud/wp-content/uploads/2025/11/maki_arrow-1.svg" alt="" />
                                   <span>Guides</span>
                                 </a>
                               </li>
                               <li>
-                                <a href={`${BASE_URL}/hr-glossary`}>
+                                <a href="https://hrone.cloud/hr-glossary">
                                   <img src="https://hrone.cloud/wp-content/uploads/2025/11/maki_arrow-1.svg" alt="" />
                                   <span>Glossary</span>
                                 </a>
                               </li>
                             </ul>
                           </div>
+
                           <div className="dropdown_group">
                             <h2>Do</h2>
                             <ul>
-                              <li>
-                                <a href={`${BASE_URL}/download-template/`}>
+                              <li className="active">
+                                <a href="https://hrone.cloud/download-template/">
                                   <img src="https://hrone.cloud/wp-content/uploads/2025/11/maki_arrow-1.svg" alt="" />
                                   <span>Templates</span>
                                 </a>
                               </li>
                             </ul>
                           </div>
+
                           <div className="dropdown_group">
                             <h2>Engage</h2>
                             <ul>
                               <li>
-                                <a href={`${BASE_URL}/hr-podcast`}>
+                                <a href="https://hrone.cloud/hr-podcast">
                                   <img src="https://hrone.cloud/wp-content/uploads/2025/11/maki_arrow-1.svg" alt="" />
                                   <span>CHRO Podcast</span>
                                 </a>
                               </li>
                               <li>
-                                <a href={`${BASE_URL}/hr-commune/`}>
+                                <a href="https://hrone.cloud/hr-commune/">
                                   <img src="https://hrone.cloud/wp-content/uploads/2025/11/maki_arrow-1.svg" alt="" />
                                   <span>HRCommune</span>
                                 </a>
                               </li>
                               <li>
-                                <a href={`${BASE_URL}/propel`}>
+                                <a href="https://hrone.cloud/propel">
                                   <img src="https://hrone.cloud/wp-content/uploads/2025/11/maki_arrow-1.svg" alt="" />
                                   <span>HROne PROPEL</span>
                                 </a>
                               </li>
                             </ul>
+                          </div>
+                        </div>
+
+                        {/* RIGHT SIDE */}
+                        <div className="hrresourec_dropdown_right">
+                          <div className="content-item">
+                            <h2>Featured</h2>
+                            <div className="hrresourec_dropdown_right_grid">
+                              <div>
+                                <img
+                                  src="https://hrone.cloud/wp-content/uploads/2026/01/Employee-Engagement-Strategies-1024x683.png"
+                                  alt="Best Employee Engagement Strategies for Hybrid Teams in 2026"
+                                />
+                                <h3>
+                                  <a href="https://hrone.cloud/blog/best-employee-engagement-strategies-for-hybrid-teams/">
+                                    Best Employee Engagement Strategies for Hybrid Teams in 2026
+                                  </a>
+                                </h3>
+                                <p>
+                                  Employee engagement strategies look completely different when half your team is working
+                                  from their&nbsp;Bengaluru&nbsp;apartment&nbsp;and the other half sits in your…
+                                </p>
+                              </div>
+                              <div>
+                                <h4>
+                                  <a href="https://hrone.cloud/blog/signs-organization-needs-workforce-management-software/">
+                                    Signs Your Organization Needs Workforce Management Software Now
+                                  </a>
+                                </h4>
+                                <h4>
+                                  <a href="https://hrone.cloud/blog/integrating-workforce-management-software-with-attendance-payroll-systems/">
+                                    Integrating Workforce Management Software with Attendance and Payroll Systems
+                                  </a>
+                                </h4>
+                                <h4>
+                                  <a href="https://hrone.cloud/blog/workforce-management-software-vs-manual-workforce-planning/">
+                                    Workforce Management Software vs Manual Workforce Planning
+                                  </a>
+                                </h4>
+                                <h4>
+                                  <a href="https://hrone.cloud/blog/how-okrs-kpis-managed-using-performance-software/">
+                                    How OKRs and KPIs Are Managed Effectively Using Performance Software
+                                  </a>
+                                </h4>
+                                <h4>
+                                  <a href="https://hrone.cloud/blog/performance-management-software-vs-annual-reviews-what-works-better-today/">
+                                    Performance Management Software vs Annual Reviews: What Works Better Today
+                                  </a>
+                                </h4>
+                                <h4>
+                                  <a href="https://hrone.cloud/blog/why-attendance-software-critical-before-scaling-workforce/">
+                                    Why Attendance Software Is Critical Before Scaling Your Workforce
+                                  </a>
+                                </h4>
+                                <h4>
+                                  <a href="https://hrone.cloud/blog/union-budget-2026-employer-expectations-policy-priorities/">
+                                    Union Budget 2026: Business Challenges, Employer Expectations, and Policy Priorities
+                                  </a>
+                                </h4>
+                                <h4>
+                                  <a href="https://hrone.cloud/blog/recruitment-software-vs-manual-hiring/">
+                                    Recruitment Software vs. Manual Hiring: What Growing Companies Must Know
+                                  </a>
+                                </h4>
+                                <h4>
+                                  <a href="https://hrone.cloud/blog/why-time-tracking-is-critical-for-productivity-and-compliance/">
+                                    Why Time Tracking Is Critical for Productivity and Compliance
+                                  </a>
+                                </h4>
+                                <h4>
+                                  <a href="https://hrone.cloud/blog/challenges-of-tracking-field-employees-without-geo-fencing/">
+                                    Challenges of Tracking Field Employees Without Geofencing
+                                  </a>
+                                </h4>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="content-item">
+                            <h2>Featured</h2>
+                            <div className="hrresourec_dropdown_right_grid">
+                              <div>
+                                <img
+                                  src="https://hrone.cloud/wp-content/uploads/2023/07/guide.png"
+                                  alt="Leave Management Guide"
+                                />
+                                <h3>
+                                  <a href="https://hrone.cloud/guide/leave-management/">Leave Management Guide</a>
+                                </h3>
+                                <p>
+                                  What is Leave? Leave is simply taking an off from work day after informing the management
+                                  formally and sometimes even…
+                                </p>
+                              </div>
+                              <div>
+                                <h4>
+                                  <a href="https://hrone.cloud/guide/expense-management/">
+                                    Informative Expense Management Guide
+                                  </a>
+                                </h4>
+                                <h4>
+                                  <a href="https://hrone.cloud/guide/performance-management/">
+                                    Performance Management –A Definitive Guide
+                                  </a>
+                                </h4>
+                                <h4>
+                                  <a href="https://hrone.cloud/guide/hrms/">HRMS Guide</a>
+                                </h4>
+                                <h4>
+                                  <a href="https://hrone.cloud/guide/performance-appraisal/">Performance Appraisal</a>
+                                </h4>
+                                <h4>
+                                  <a href="https://hrone.cloud/guide/employee-engagement/">
+                                    Complete Employee Engagement Guide
+                                  </a>
+                                </h4>
+                                <h4>
+                                  <a href="https://hrone.cloud/the-continuous-listening-guide-for-irresistible-organizations/">
+                                    The continuous listening guide
+                                  </a>
+                                </h4>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="content-item">
+                            <h2>Featured</h2>
+                            <div className="hrresourec_dropdown_right_grid">
+                              <div>
+                                <img
+                                  src="https://content.hrone.cloud/wp-content/uploads/2025/11/Blog-Thumbnail.jpg"
+                                  alt="Casual vs Earned Leave: Plan Better, Lose No Pay"
+                                />
+                                <h3>
+                                  <a href="https://hrone.cloud/hr-glossary/casual-leave-vs-earned-leave/">
+                                    Casual vs Earned Leave: Plan Better, Lose No Pay
+                                  </a>
+                                </h3>
+                              </div>
+                              <div>
+                                <h4>
+                                  <a href="https://hrone.cloud/hr-glossary/leave-encashment/">
+                                    What Is Leave Encashment? Meaning, Rules, Tax Exemption &amp; Calculation
+                                  </a>
+                                </h4>
+                                <h4>
+                                  <a href="https://hrone.cloud/hr-glossary/payroll-accounting/">
+                                    Payroll Accounting: Process, Entries &amp; Management
+                                  </a>
+                                </h4>
+                                <h4>
+                                  <a href="https://hrone.cloud/hr-glossary/week-off/">
+                                    Week Off Meaning, Rules &amp; Guidelines
+                                  </a>
+                                </h4>
+                                <h4>
+                                  <a href="https://hrone.cloud/hr-glossary/leave-without-pay/">
+                                    Leave Without Pay (LWP): Meaning, Rules, and Full Form Explained
+                                  </a>
+                                </h4>
+                                <h4>
+                                  <a href="https://hrone.cloud/hr-glossary/salary-revision/">
+                                    What Is Salary Revision?
+                                  </a>
+                                </h4>
+                                <h4>
+                                  <a href="https://hrone.cloud/hr-glossary/gross-salary-vs-ctc/">
+                                    Difference between gross salary and ctc
+                                  </a>
+                                </h4>
+                                <h4>
+                                  <a href="https://hrone.cloud/hr-glossary/earned-leave/">
+                                    Earned Leave [Meaning to Calculations]
+                                  </a>
+                                </h4>
+                                <h4>
+                                  <a href="https://hrone.cloud/medical-leave/">
+                                    Medical Leave: Rules, Format, Application &amp; Common Reasons
+                                  </a>
+                                </h4>
+                                <h4>
+                                  <a href="https://hrone.cloud/hr-glossary/form-12bb/">
+                                    What is Form 12bb Income Tax?
+                                  </a>
+                                </h4>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="content-item active">
+                            <h2>Featured</h2>
+                            <div className="hrresourec_dropdown_right_grid">
+                              <div>
+                                <img
+                                  src="https://hrone.cloud/wp-content/uploads/2020/09/timesheet-management-policy.png"
+                                  alt="Timesheet Management Policy"
+                                />
+                                <h3>
+                                  <a href="https://hrone.cloud/download-template/timesheet-management-policy/">
+                                    Timesheet Management Policy
+                                  </a>
+                                </h3>
+                                <p>
+                                  Completing tasks within the stipulated time is the end goal for every business. How do
+                                  you ensure sticking to the…
+                                </p>
+                              </div>
+                              <div>
+                                <h4>
+                                  <a href="https://hrone.cloud/download-template/time-attendance-policy/">
+                                    Time Attendance Policy
+                                  </a>
+                                </h4>
+                                <h4>
+                                  <a href="https://hrone.cloud/download-template/salary-advance-policy/">
+                                    Salary Advance Policy
+                                  </a>
+                                </h4>
+                                <h4>
+                                  <a href="https://hrone.cloud/download-template/performance-management-policy/">
+                                    Performance Management Policy
+                                  </a>
+                                </h4>
+                                <h4>
+                                  <a href="https://hrone.cloud/download-template/leave-policy/">Leave Policy</a>
+                                </h4>
+                                <h4>
+                                  <a href="https://hrone.cloud/download-template/dress-code-policy/">
+                                    Dress Code Policy
+                                  </a>
+                                </h4>
+                                <h4>
+                                  <a href="https://hrone.cloud/download-template/claim-reimbursement-policy/">
+                                    Claim Reimbursement Policy
+                                  </a>
+                                </h4>
+                                <h4>
+                                  <a href="https://hrone.cloud/download-template/business-travel-policy/">
+                                    Business Travel Policy
+                                  </a>
+                                </h4>
+                                <h4>
+                                  <a href="https://hrone.cloud/download-template/employee-onboarding-checklist/">
+                                    Employee Onboarding Checklist
+                                  </a>
+                                </h4>
+                                <h4>
+                                  <a href="https://hrone.cloud/download-template/employee-loan-advance-salary-approval-form/">
+                                    Employee Loan Advance Salary Approval Form
+                                  </a>
+                                </h4>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="content-item">
+                            <h2>Featured</h2>
+                            <div className="hrresourec_dropdown_right_grid">
+                              <div>
+                                <img
+                                  src="https://hrone.cloud/wp-content/uploads/2026/01/Gopalji-Mehrotra-_-thumbnail_web-1024x689.jpg"
+                                  alt="What Actually Breaks Organizations: Roles or Skills?"
+                                />
+                                <h3>
+                                  <a href="https://hrone.cloud/hr-podcast/skills-vs-roles-build-adaptable-workforce/">
+                                    What Actually Breaks Organizations: Roles or Skills?
+                                  </a>
+                                </h3>
+                                <p></p>
+                              </div>
+                              <div>
+                                <h4>
+                                  <a href="https://hrone.cloud/hr-podcast/organizational-growth-challenges-hr-fix/">
+                                    When Companies Grow Fast, Does HR Bend or Push Back?
+                                  </a>
+                                </h4>
+                                <h4>
+                                  <a href="https://hrone.cloud/hr-podcast/will-ai-replace-the-human-in-hr/">
+                                    Will AI replace the ‘Human’ in HR?
+                                  </a>
+                                </h4>
+                                <h4>
+                                  <a href="https://hrone.cloud/hr-podcast/early-signs-of-cultural-weakness/">
+                                    Are You Ignoring Early Signs Of Cultural Weakness?
+                                  </a>
+                                </h4>
+                                <h4>
+                                  <a href="https://hrone.cloud/hr-podcast/how-hrs-think-3-moves-ahead/">
+                                    HRs Should React Fast, But What About Thinking Three Moves Ahead?
+                                  </a>
+                                </h4>
+                                <h4>
+                                  <a href="https://hrone.cloud/hr-podcast/culture-as-risk-insurance-what-ceos-expect-and-what-chros-must-deliver/">
+                                    Culture Isn’t Just a Buzzword – What Happens When CEOs See It as a Risk?
+                                  </a>
+                                </h4>
+                                <h4>
+                                  <a href="https://hrone.cloud/hr-podcast/ways-to-increase-your-credibility-as-a-chro/">
+                                    Credibility Comes from Titles – What If It’s All About Storytelling &amp; Trust?
+                                  </a>
+                                </h4>
+                                <h4>
+                                  <a href="https://hrone.cloud/hr-podcast/why-talent-retention-fails-despite-offered-perks/">
+                                    Retention Issues Are Inevitable – What If HR Is Stepping into Pitfalls?
+                                  </a>
+                                </h4>
+                                <h4>
+                                  <a href="https://hrone.cloud/hr-podcast/hr-lessons-from-mythology-on-dharam-sankatas/">
+                                    HR Can’t Be Too Emotional – What Happens When Empathy Meets Policy?
+                                  </a>
+                                </h4>
+                                <h4>
+                                  <a href="https://hrone.cloud/hr-podcast/multigenerational-workforce-leadership-chro-strategies/">
+                                    Multigenerational Teams Are Tough – Can Your Culture Bridge the Gap?
+                                  </a>
+                                </h4>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>

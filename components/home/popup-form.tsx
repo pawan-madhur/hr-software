@@ -42,10 +42,9 @@ export default function PopupForm({ isOpen, onClose }: PopupFormProps) {
     setCurrentStep(1);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", formData);
+    // TODO: send `formData` to your backend or marketing platform
   };
 
   if (!isOpen) return null;
@@ -58,18 +57,50 @@ export default function PopupForm({ isOpen, onClose }: PopupFormProps) {
           <h2 className="formoverlay-inner-container-h2">Try HROne For Free!</h2>
           <div className="demo-form-image-flex">
             <div className="demo-form-image-flex-left">
-              <img
+              <Image
                 src="https://hrone.cloud/wp-content/uploads/2024/06/demo-image.png"
                 className="demo-form-image-main"
                 alt="Demo"
+                width={640}
+                height={480}
               />
               <div className="demo-form-image-multilogo">
-                <img src="https://hrone.cloud/wp-content/uploads/2024/07/canon-b.png" alt="Canon" />
-                <img src="https://hrone.cloud/wp-content/uploads/2024/06/demo-timex.png" alt="Timex" />
-                <img src="https://hrone.cloud/wp-content/uploads/2024/07/bikanervala-b.png" alt="Bikanervala" />
-                <img src="https://hrone.cloud/wp-content/uploads/2024/07/haier-b.png" alt="Haier" />
-                <img src="https://hrone.cloud/wp-content/uploads/2024/07/muthoot-b.png" alt="Muthoot" />
-                <img src="https://hrone.cloud/wp-content/uploads/2025/07/REPUBLIC-GREY.jpg" alt="Republic" />
+                <Image
+                  src="https://hrone.cloud/wp-content/uploads/2024/07/canon-b.png"
+                  alt="Canon"
+                  width={120}
+                  height={60}
+                />
+                <Image
+                  src="https://hrone.cloud/wp-content/uploads/2024/06/demo-timex.png"
+                  alt="Timex"
+                  width={120}
+                  height={60}
+                />
+                <Image
+                  src="https://hrone.cloud/wp-content/uploads/2024/07/bikanervala-b.png"
+                  alt="Bikanervala"
+                  width={120}
+                  height={60}
+                />
+                <Image
+                  src="https://hrone.cloud/wp-content/uploads/2024/07/haier-b.png"
+                  alt="Haier"
+                  width={120}
+                  height={60}
+                />
+                <Image
+                  src="https://hrone.cloud/wp-content/uploads/2024/07/muthoot-b.png"
+                  alt="Muthoot"
+                  width={120}
+                  height={60}
+                />
+                <Image
+                  src="https://hrone.cloud/wp-content/uploads/2025/07/REPUBLIC-GREY.jpg"
+                  alt="Republic"
+                  width={120}
+                  height={60}
+                />
               </div>
             </div>
             <div className="demo-form-image-flex-right">

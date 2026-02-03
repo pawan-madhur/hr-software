@@ -203,9 +203,8 @@ b {
 }
 
 .container_cus {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
+  max-width: 1160px !important;
+  margin: auto;
 }
 
 .header-parent {
@@ -306,6 +305,14 @@ b {
   line-height: normal;
 }
 
+.main-header .nav-ul .level-0 .vector-img-1.vector-active {
+  transform: rotate(180deg);
+}
+
+.main-header .nav-ul li .level-1-menu img {
+  filter: brightness(7);
+}
+
 .level-1-menu {
   display: flex;
   align-items: center;
@@ -339,6 +346,11 @@ b {
   height: 18px;
   object-fit: contain;
   margin-right: 4px;
+}
+
+.main-header .nav-ul li .level-1-menu .main-menu-icon-img {
+  filter: unset;
+  max-width: 100%;
 }
 
 /* Dropdown - HR Software (full-screen, no scrollbar) */
@@ -381,10 +393,12 @@ b {
   visibility: visible;
 }
 
-.main-header .nav-ul li:hover > .hrsoftware_dropdown.hrone-level-1 {
+/* Apply dark blurred background for any open top-level dropdown */
+.main-header .nav-ul li:hover > .hrone-level-1 {
   background: #00251AE5 !important;
   filter: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.14));
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(10px);
+  height: 100vh;
 }
 
 /* HR Resources & other dropdowns - keep scroll when needed */
@@ -472,7 +486,20 @@ b {
   height: 100%;
   flex-shrink: 0;
 }
+ 
+.hrsoftware_dropdown_right > div:nth-child(2) img {
+  width: 100%;
+  padding: 0;
+  margin-bottom: 45px;
+  background: transparent;
+}
 
+.hrsoftware_dropdown_right > div:nth-child(2) a {
+  flex-direction: column;
+  align-items: normal;
+  gap: 0 !important;
+}
+ 
 .hrsoftware_dropdown_right .hrsoftware_col:first-child ul {
   column-count: 2;
   column-gap: 40px;
@@ -704,14 +731,20 @@ b {
 /* HR Resources dropdown */
 .hrresourec_dropdown_main {
   display: flex;
-  gap: 48px;
-  padding: 24px;
-  max-width: 1200px;
-  margin: 0 auto;
+  align-items: flex-start;
+  gap: 55px;
+  height: 100vh;
 }
 
 .hrresourec_dropdown_left {
-  flex: 0 0 220px;
+  width: calc(16% - 24px);
+  padding: 40px 0 20px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  height: 100%;
 }
 
 .dropdown_group h2 {
@@ -741,6 +774,78 @@ b {
 
 .dropdown_group ul li a:hover {
   color: #E56046;
+}
+
+/* HR Resources dropdown – left panel interactions */
+.hrresourec_dropdown_left .dropdown_group li {
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  padding-left: 100vw;
+  margin-left: -100vw;
+}
+
+.hrresourec_dropdown_left .dropdown_group li.active,
+.hrresourec_dropdown_left .dropdown_group li:hover {
+  background: #7daf9a;
+}
+
+/* HR Resources dropdown – right panel */
+.hrresourec_dropdown_right {
+  width: calc(84% - 24px);
+  flex: 1;
+  padding: 40px 0;
+  position: relative;
+  overflow-y: auto;
+}
+
+/* Make HR Resources dropdown content span full overlay width, not the default 1160px container */
+.hrresourec_dropdown .container_cus {
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.hrresourec_dropdown_main h2 {
+  color: #7daf9a;
+  font-family: "Public Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+.hrresourec_dropdown_right_grid {
+  display: flex;
+  margin-top: 28px;
+  align-items: flex-start;
+}
+
+.hrresourec_dropdown_right_grid > div:first-child {
+  width: 36%;
+  padding-right: 42px;
+  border-right: 1px solid #FFFFFF33;
+  height: -webkit-fill-available;
+}
+
+.hrresourec_dropdown_right_grid > div:last-child {
+  padding-left: 42px;
+  width: 64%;
+  gap: 18px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.hrresourec_dropdown_right .content-item.active {
+  display: block;
+}
+
+.hrresourec_dropdown_right_grid h4 a:hover {
+  border-radius: 6px;
+  background: rgba(22, 113, 82, 0.20);
+  padding: 16px;
+  color: #009F78 !important;
 }
 
 .dropdown_group ul li a img {
@@ -1478,7 +1583,8 @@ b {
 }
 
 .soft_four_grid>div {
-  width: calc(33% - 56px);
+  /* 3 cards per row: total width minus 2 gaps (12px each), divided by 3 */
+  flex: 0 0 calc((100% - 24px) / 3);
   padding: 24px;
   border-radius: 3px;
   border: 1px solid rgba(22, 113, 82, 0.20);
