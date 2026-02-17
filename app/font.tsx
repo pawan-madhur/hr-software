@@ -1,4 +1,6 @@
 import localFont from "next/font/local";
+import { Public_Sans } from "next/font/google";
+
 
 export const clashGrotesk = localFont({
   src: [
@@ -27,29 +29,36 @@ export const clashGrotesk = localFont({
   display: "swap",
 });
 
-export const publicSans = localFont({
-  src: [
-    {
-      path: "../public/fonts/PublicSans-Regular.ttf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/PublicSans-Medium.ttf",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/PublicSans-SemiBold.ttf",
-      weight: "600",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/PublicSans-Bold.ttf",
-      weight: "700",
-      style: "normal",
-    },
-  ],
+// export const publicSans = localFont({
+//   src: [
+//     {
+//       path: "../public/fonts/PublicSans-Regular.ttf",
+//       weight: "400",
+//       style: "normal",
+//     },
+//     {
+//       path: "../public/fonts/PublicSans-Medium.ttf",
+//       weight: "500",
+//       style: "normal",
+//     },
+//     {
+//       path: "../public/fonts/PublicSans-SemiBold.ttf",
+//       weight: "600",
+//       style: "normal",
+//     },
+//     {
+//       path: "../public/fonts/PublicSans-Bold.ttf",
+//       weight: "700",
+//       style: "normal",
+//     },
+//   ],
+//   variable: "--font-public-sans",
+//   display: "swap",
+// });
+
+
+export const publicSans = Public_Sans({
+  subsets: ["latin"],
   variable: "--font-public-sans",
   display: "swap",
 });

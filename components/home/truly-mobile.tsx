@@ -49,7 +49,7 @@ export default function TrulyMobile() {
                     <div className="truly-mobile-accordion-sec">
                         {accordionData.map((item, index) => (
                             <div key={index} className="accordion-item-wrapper">
-                                <button 
+                                <button
                                     className={`accordion ${activeIndex === index ? 'active' : ''}`}
                                     onClick={() => toggleAccordion(index)}
                                 >
@@ -58,32 +58,54 @@ export default function TrulyMobile() {
                                         <p className="accordion-subtitle">{item.subtitle}</p>
                                     </div>
                                     <span className="accordion-chevron">
-                                        <svg 
-                                            width="24" 
-                                            height="24" 
-                                            viewBox="0 0 24 24" 
-                                            fill="none" 
+                                        <svg
+                                            width="24"
+                                            height="24"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
                                             xmlns="http://www.w3.org/2000/svg"
-                                            style={{ 
+                                            style={{
                                                 transform: activeIndex === index ? 'rotate(180deg)' : 'rotate(0deg)',
                                                 transition: 'transform 0.3s ease'
                                             }}
                                         >
-                                            <path d="M6 9L12 15L18 9" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                            <path d="M6 9L12 15L18 9" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                         </svg>
                                     </span>
                                 </button>
 
-                                <div 
-                                    className="panel" 
+                                <div
+                                    className="panel"
                                     style={{ display: activeIndex === index ? 'block' : 'none' }}
                                 >
                                     <ul>
                                         {item.items.map((listItem, itemIndex) => (
                                             <li key={itemIndex}>
-                                                <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M6.51121 5.5322L0.852175 0.140227C0.757751 0.0502141 0.632302 7.19833e-08 0.501849 7.3539e-08C0.371395 7.50946e-08 0.245947 0.0502141 0.151524 0.140227L0.145431 0.14632C0.0994968 0.189957 0.0629215 0.242481 0.0379276 0.3007C0.0129342 0.358918 4.48277e-05 0.421612 4.48285e-05 0.484968C4.48292e-05 0.548325 0.0129342 0.611019 0.0379276 0.669237C0.0629215 0.727455 0.0994969 0.77998 0.145431 0.823616L5.47445 5.9008L0.145431 10.976C0.099497 11.0196 0.0629217 11.0721 0.0379278 11.1303C0.0129343 11.1886 4.49569e-05 11.2513 4.49576e-05 11.3146C4.49584e-05 11.378 0.0129343 11.4407 0.0379278 11.4989C0.0629217 11.5571 0.099497 11.6096 0.145431 11.6533L0.151524 11.6593C0.245948 11.7494 0.371395 11.7996 0.501849 11.7996C0.632302 11.7996 0.757751 11.7494 0.852175 11.6593L6.51121 6.26738C6.56098 6.21996 6.6006 6.16293 6.62767 6.09974C6.65474 6.03655 6.6687 5.96853 6.6687 5.89979C6.6687 5.83105 6.65474 5.76302 6.62767 5.69983C6.6006 5.63665 6.56098 5.57962 6.51121 5.5322Z" fill="white"/>
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    width="18"
+                                                    height="18"
+                                                    viewBox="0 0 18 18"
+                                                    fill="none"
+                                                >
+                                                    <g id="corner-down-right">
+                                                        <path
+                                                            d="M11.25 7.5L15 11.25L11.25 15"
+                                                            stroke="#A8C5BB"
+                                                            strokeWidth={2}
+                                                            strokeLinecap="round"
+                                                            strokeLinejoin="round"
+                                                        />
+                                                        <path
+                                                            d="M3 3V8.25C3 9.04565 3.31607 9.80871 3.87868 10.3713C4.44129 10.9339 5.20435 11.25 6 11.25H15"
+                                                            stroke="#A8C5BB"
+                                                            strokeWidth={2}
+                                                            strokeLinecap="round"
+                                                            strokeLinejoin="round"
+                                                        />
+                                                    </g>
                                                 </svg>
+
                                                 {listItem}
                                             </li>
                                         ))}
@@ -91,7 +113,7 @@ export default function TrulyMobile() {
                                 </div>
                             </div>
                         ))}
-                   
+
                         <div className="explore-text">
                             <a href="https://hrone.cloud/mobile-app/" className="col-6 text-center">
                                 <p>Explore More</p>

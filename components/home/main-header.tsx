@@ -1,7 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import { initHeaderHoverMenu } from "@/components/lib/headerMenu";
+import { log } from "console";
 
 export type MainHeaderProps = {
   onOpenPopup: () => void;
@@ -13,6 +15,26 @@ const BASE_URL = "https://hrone.cloud";
 export default function MainHeader({ onOpenPopup }: MainHeaderProps) {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  console.log(isScrolled);
+  useEffect(() => {
+    // init header hover logic
+    initHeaderHoverMenu();
+
+    const onScroll = () => {
+      setIsScrolled(window.scrollY > 100);
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    // run once on mount
+    onScroll();
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
+
 
   const handlePopup = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -20,7 +42,7 @@ export default function MainHeader({ onOpenPopup }: MainHeaderProps) {
   };
 
   return (
-    <div className="main-header">
+    <div className={`main-header ${isScrolled ? "header-scrolled" : ""}`}>
       <nav
         className="navbar fixed-top"
         style={{ background: "#013A29" }}
@@ -38,7 +60,7 @@ export default function MainHeader({ onOpenPopup }: MainHeaderProps) {
                 />
               </Link>
             </div>
-            <div className="header-main">
+            <div className={`header-main ${mobileOpen ? "open" : ""}`}>
               <ul className="nav-ul">
                 {/* HR Software - dropdown */}
                 <li
@@ -56,12 +78,25 @@ export default function MainHeader({ onOpenPopup }: MainHeaderProps) {
                     />
                   </span>
                   <section
-                    className={`hrsoftware_dropdown hrone-level-1 ${
-                      openDropdown === "hr-software" ? "open" : ""
-                    }`}
+                    className={`hrsoftware_dropdown hrone-level-1 ${openDropdown === "hr-software" ? "open" : ""
+                      }`}
                   >
                     <div className="container_cus">
                       <div className="hrsoftware_dropdown_main">
+                        <div className="custom-mobile-nav-header" onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          setOpenDropdown(null);
+                        }}>
+                          <div className="back-btn">
+                            <img
+                              src="https://content.hrone.cloud/wp-content/uploads/2025/11/left_arrow.svg"
+                              alt="Back"
+                            />
+                            <span>Back</span>
+                          </div>
+                        </div>
+
                         <div className="hrsoftware_dropdown_right">
                           <div className="hrsoftware_col">
                             <div className="hrsoftware_col_inner">
@@ -283,11 +318,7 @@ export default function MainHeader({ onOpenPopup }: MainHeaderProps) {
                       alt=""
                     />
                   </span>
-                  <section
-                    className={`hrresourec_dropdown hrone-level-1 ${
-                      openDropdown === "hr-resources" ? "open" : ""
-                    }`}
-                  >
+                  <section className={`hrresourec_dropdown hrone-level-1 ${openDropdown === "hr-resources" ? "open" : ""}`}>
                     <div className="container_cus">
                       <div className="hrresourec_dropdown_main">
                         {/* LEFT SIDE */}
@@ -673,6 +704,64 @@ export default function MainHeader({ onOpenPopup }: MainHeaderProps) {
                       </div>
                     </div>
                   </section>
+                  <section className={`hrresourec_dropdown mobile-version hrone-level-1 ${openDropdown === "hr-resources" ? "open" : ""
+                    }`} >
+                    <div className="container_cus">
+                      <div className="custom-mobile-nav-header" onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        setOpenDropdown(null);
+                      }}>
+                        <div className="back-btn">
+                          <img
+                            src="https://content.hrone.cloud/wp-content/uploads/2025/11/left_arrow.svg"
+                            alt="Back"
+                          />
+                          <span>Back</span>
+                        </div>
+                      </div>
+                      <div className="dropdown_group">
+                        <ul>
+                          <li>
+                            <div className="li-head">
+                              <a href="">blog</a>
+                            </div>
+                          </li>
+                          <li>
+                            <div className="li-head">
+                              <a href="">Guides</a>
+                            </div>
+                          </li>
+                          <li>
+                            <div className="li-head">
+                              <a href="">Glossary</a>
+                            </div>
+                          </li>
+                          <li>
+                            <div className="li-head">
+                              <a href="">Templates</a>
+                            </div>
+                          </li>
+                          <li>
+                            <div className="li-head">
+                              <a href="">CHRO Podcast</a>
+                            </div>
+                          </li>
+                          <li>
+                            <div className="li-head">
+                              <a href="">HR Commune</a>
+                            </div>
+                          </li>
+                          <li>
+                            <div className="li-head">
+                              <a href="">HROne Propel</a>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </section>
+
                 </li>
 
                 {/* About - dropdown */}
@@ -691,7 +780,20 @@ export default function MainHeader({ onOpenPopup }: MainHeaderProps) {
                     />
                   </span>
                   <nav className={`hrone-level-1 about-dropdown ${openDropdown === "about" ? "open" : ""}`}>
-                    <div className="container">
+                    <div className="container container_cus">
+                      <div className="custom-mobile-nav-header" onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        setOpenDropdown(null);
+                      }}>
+                        <div className="back-btn">
+                          <img
+                            src="https://content.hrone.cloud/wp-content/uploads/2025/11/left_arrow.svg"
+                            alt="Back"
+                          />
+                          <span>Back</span>
+                        </div>
+                      </div>
                       <p className="nav-title">About HROne</p>
                       <div className="about-hrone-grid">
                         <a className="about-hrone-grid-item" href={`${BASE_URL}/why-hrone/`}>
@@ -757,14 +859,6 @@ export default function MainHeader({ onOpenPopup }: MainHeaderProps) {
                   </span>
                 </li>
               </ul>
-              <div className="buttons">
-                <a className="green-border-btn" href={LOGIN_URL} target="_blank" rel="noopener noreferrer">
-                  Login
-                </a>
-                <a href="#" className="popnew green-btn" data-id="" onClick={handlePopup}>
-                  Get Free Trial
-                </a>
-              </div>
             </div>
 
             <div className="mobile-hamburger">
@@ -789,54 +883,7 @@ export default function MainHeader({ onOpenPopup }: MainHeaderProps) {
           </div>
         </div>
 
-        {/* Mobile menu */}
-        <div className={`custom-mobile-nav ${mobileOpen ? "open" : ""}`}>
-          <div className="custom-mobile-nav-header">
-            <button type="button" className="back-btn" onClick={() => setMobileOpen(false)}>
-              <img src="https://content.hrone.cloud/wp-content/uploads/2025/11/left_arrow.svg" alt="back" />
-              <span>Back</span>
-            </button>
-            <button
-              type="button"
-              className="inner-nav-hamburger"
-              onClick={() => setMobileOpen(false)}
-              aria-label="Close menu"
-            >
-              <img src="https://hrone.cloud/wp-content/themes/hrone-child/assets/images/header/ham-close.svg" alt="" />
-            </button>
-          </div>
-          <div className="mobile-nav-links">
-            <a href={`${BASE_URL}/hr-software/`} onClick={() => setMobileOpen(false)}>
-              HR Software
-            </a>
-            <a href={`${BASE_URL}/pricing/`} onClick={() => setMobileOpen(false)}>
-              Pricing
-            </a>
-            <a href={`${BASE_URL}/one-ai/`} onClick={() => setMobileOpen(false)}>
-              HR AI Agents
-            </a>
-            <a href="https://hrone.studio/?source=hrone&medium=website" target="_blank" rel="noopener noreferrer" onClick={() => setMobileOpen(false)}>
-              HROne Studio
-            </a>
-            <a href={`${BASE_URL}/blog`} onClick={() => setMobileOpen(false)}>
-              HR Resources
-            </a>
-            <a href={`${BASE_URL}/why-hrone/`} onClick={() => setMobileOpen(false)}>
-              About
-            </a>
-            <a
-              href="#"
-              className="popnew mobile-cta"
-              onClick={(e) => {
-                e.preventDefault();
-                onOpenPopup();
-                setMobileOpen(false);
-              }}
-            >
-              Get Free Trial
-            </a>
-          </div>
-        </div>
+
       </nav>
     </div>
   );

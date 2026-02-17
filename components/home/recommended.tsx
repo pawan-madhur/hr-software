@@ -28,21 +28,27 @@ export default function Recommended() {
     const articles: Article[] = [
         {
             id: 1,
-            image: "/images/hero-desktop.png",
-            title: "How to Make a Winning HR Digital Transformation",
-            href: "#",
+            image: "/images/AI-Upskilling-for-HR-Teams.png",
+            title: "Upskilling HR Teams for AI and Automation: A Roadmap",
+            href: "https://hrone.cloud/blog/upskilling-hr-teams-for-ai-and-automation-a-roadmap/",
         },
         {
             id: 2,
-            image: "/images/hero-desktop.png",
-            title: "Data Driven HR Strategy: 5 Simple Ways to Build It [+Real Life Examples]",
-            href: "#",
+            image: "/images/Successful-Resume-Screening-Techniques.png",
+            title: "9 Most Effective Techniques for Successful Resume Screenings",
+            href: "https://hrone.cloud/blog/techniques-for-successful-resume-screenings/",
         },
         {
             id: 3,
-            image: "/images/hero-desktop.png",
-            title: "ChatGPT in HR: 16 Prompts You Can Copy-Paste From [+Use Cases]",
-            href: "#",
+            image: "/images/HR-ROI-for-Leadership.png",
+            title: "How to Calculate and Present HR ROI to Leadership",
+            href: "https://hrone.cloud/blog/how-to-calculate-present-hr-roi-to-leadership/",
+        },
+        {
+            id: 4,
+            image: "/images/POSH-Compliance-Remote-Work.png",
+            title: "POSH Compliance in Remote and Hybrid Workplaces: Challenges and Solutions",
+            href: "https://hrone.cloud/blog/posh-compliance-remote-hybrid-workplaces-challenges-solutions/",
         },
     ];
 
@@ -50,6 +56,7 @@ export default function Recommended() {
         const maxIndex = isDesktop
             ? Math.max(0, articles.length - 2)
             : Math.max(0, articles.length - 1);
+
         setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
     };
 
@@ -57,6 +64,7 @@ export default function Recommended() {
         const maxIndex = isDesktop
             ? Math.max(0, articles.length - 2)
             : Math.max(0, articles.length - 1);
+
         setCurrentIndex((prev) => (prev === 0 ? maxIndex : prev - 1));
     };
 
@@ -72,6 +80,7 @@ export default function Recommended() {
             <div className="container container_cus">
                 <div className="recommended-main">
                     <h2>Recommended HR Reads</h2>
+
                     <div className="recommended-slider-row">
                         <button
                             type="button"
@@ -81,6 +90,7 @@ export default function Recommended() {
                         >
                             <Image src={leftArrow} alt="Left Arrow" />
                         </button>
+
                         <div className="recommended-main-card">
                             <div
                                 className="recommended-main-card-track"
@@ -109,6 +119,7 @@ export default function Recommended() {
                                 ))}
                             </div>
                         </div>
+
                         <button
                             type="button"
                             className="workplace-next"

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { publicSans } from "@/app/font";
+import { publicSans, clashGrotesk } from "@/app/font";
 import "./globals.css";
+
 
 export const metadata: Metadata = {
   title: "HROne - HR Software",
@@ -15,9 +16,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${publicSans.variable} antialiased`}
+        className={`${publicSans.variable} ${clashGrotesk.variable} antialiased`}
       >
-        {children} 
+        {children}
       </body>
     </html>
   );

@@ -107,15 +107,15 @@ export default function PopupForm({ isOpen, onClose }: PopupFormProps) {
               <div className="form-section floating-form-yellow-white">
                 <form id="popupForm" className="propel-eventfrom popupformresponse" onSubmit={handleSubmit}>
                   <fieldset style={{ display: currentStep === 1 ? "block" : "none" }}>
-                    <input type="text" className="hidden" value="https://hrone.cloud/hr-software/" name="popup_permalink" />
-                    <input type="text" className="hidden" name="popup_page_title" value="HR Software" />
-                    <input type="text" className="hidden" name="form_name" value="Popup_demo_form" />
-                    <input type="hidden" name="utm_source" className="utm_source" value="" />
-                    <input type="hidden" name="utm_medium" className="utm_medium" value="" />
-                    <input type="hidden" name="utm_campaign" className="utm_campaign" value="" />
-                    <input type="hidden" name="utm_content" className="utm_content" value="" />
-                    <input type="hidden" name="utm_term" className="utm_term" value="" />
-                    
+                    <input type="text" className="hidden" value="https://hrone.cloud/hr-software/" name="popup_permalink" readOnly />
+                    <input type="text" className="hidden" name="popup_page_title" value="HR Software" readOnly />
+                    <input type="text" className="hidden" name="form_name" value="Popup_demo_form" readOnly />
+                    <input type="hidden" name="utm_source" className="utm_source" value="" readOnly />
+                    <input type="hidden" name="utm_medium" className="utm_medium" value="" readOnly />
+                    <input type="hidden" name="utm_campaign" className="utm_campaign" value="" readOnly />
+                    <input type="hidden" name="utm_content" className="utm_content" value="" readOnly />
+                    <input type="hidden" name="utm_term" className="utm_term" value="" readOnly />
+
                     <div className="floating-form-control">
                       <input
                         className="floating-form-input popup_official_email"
@@ -133,7 +133,7 @@ export default function PopupForm({ isOpen, onClose }: PopupFormProps) {
                       </label>
                       <span className="pop_email_error error-txt floating-form-alert"></span>
                     </div>
-                    
+
                     <div className="floating-form-input-group">
                       <span className="floating-form-input-group-text">
                         <img src="https://content.hrone.cloud/wp-content/uploads/2024/06/indian-flag.svg" className="country-flag" alt="India" /> +91
@@ -156,7 +156,7 @@ export default function PopupForm({ isOpen, onClose }: PopupFormProps) {
                         <span className="popup_phone_error error-txt floating-form-alert"></span>
                       </div>
                     </div>
-                    
+
                     <div className="floating-form-control">
                       <select
                         id="popup_no_of_employee"
@@ -179,7 +179,7 @@ export default function PopupForm({ isOpen, onClose }: PopupFormProps) {
                       </label>
                       <span className="popup_employee_error error-txt floating-form-alert"></span>
                     </div>
-                    
+
                     <p className="cookies-text-form">
                       By providing your information, you hereby consent to the HROne{" "}
                       <a href="https://content.hrone.cloud/cookies-policy/" target="_blank" rel="noopener">
@@ -199,7 +199,7 @@ export default function PopupForm({ isOpen, onClose }: PopupFormProps) {
                       onClick={handleNext}
                     />
                   </fieldset>
-                  
+
                   <fieldset style={{ display: currentStep === 2 ? "block" : "none" }}>
                     <div className="floating-form-control">
                       <input
@@ -217,7 +217,7 @@ export default function PopupForm({ isOpen, onClose }: PopupFormProps) {
                         Name <span className="starred">*</span>
                       </label>
                     </div>
-                    
+
                     <div className="floating-form-control floating-box-city">
                       <input
                         type="text"
@@ -236,7 +236,7 @@ export default function PopupForm({ isOpen, onClose }: PopupFormProps) {
                       <div className="result-box-city result-box-city-popup" style={{ display: "none" }}></div>
                       <span className="city-error-popup error-txt floating-form-alert"></span>
                     </div>
-                    
+
                     <p className="cookies-text-form">
                       By providing your information, you hereby consent to the HROne{" "}
                       <a href="https://content.hrone.cloud/cookies-policy/" target="_blank" rel="noopener">
@@ -268,7 +268,7 @@ export default function PopupForm({ isOpen, onClose }: PopupFormProps) {
                   <div className="loader"></div>
                 </div>
               </div>
-              
+
               <div className="demo-form-image-rating">
                 <div className="cust-rating-main aos-init aos-animate" data-aos="fade-up" data-aos-anchor=".para-anc" data-aos-delay="300">
                   <div className="customer-ratings">
@@ -289,7 +289,7 @@ export default function PopupForm({ isOpen, onClose }: PopupFormProps) {
                       <p className="cust-review-p">1926+ Reviews | 4.8</p>
                     </div>
                   </div>
-                  
+
                   <div className="customer-ratings">
                     <div>
                       <div className="ratings-container">

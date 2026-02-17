@@ -17,6 +17,9 @@ import Faqs from "@/components/home/Faqs";
 import PopupForm from "@/components/home/popup-form";
 import TopBar from "@/components/home/top-bar";
 import MainHeader from "@/components/home/main-header";
+import MainFooter from "@/components/home/mainFooter";
+import HeroOperational from "@/components/home/heroOperational";
+import SimplerWorkdays from "@/components/home/softwareTab";
 
 export default function Home() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -34,10 +37,12 @@ export default function Home() {
       <TopBar onOpenPopup={openPopup} />
       <MainHeader onOpenPopup={openPopup} />
       <Hero onOpenPopup={openPopup} />
+      <HeroOperational onOpenPopup={openPopup} />
+      <SimplerWorkdays />
       <SoftwareAccordian />
       <TrulyMobile />
       <CustomerTestimonial />
-      <SwitchRating />
+      <SwitchRating onOpenPopup={openPopup} />
       <IntegrationSection />
       <AddonSection />
       <Recommended />
@@ -45,6 +50,7 @@ export default function Home() {
       <HroneServiceCities />
       <Faqs />
       <PopupForm isOpen={isPopupOpen} onClose={closePopup} />
+      <MainFooter />
     </>
   );
 }
