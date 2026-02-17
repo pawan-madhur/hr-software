@@ -36,10 +36,10 @@ export default function Home() {
     <>
       <TopBar onOpenPopup={openPopup} />
       <MainHeader onOpenPopup={openPopup} />
-      <Hero onOpenPopup={openPopup} />
+      {/* <Hero onOpenPopup={openPopup} /> */}
       <HeroOperational onOpenPopup={openPopup} />
       <SimplerWorkdays />
-      <SoftwareAccordian />
+      {/* <SoftwareAccordian /> */}
       <TrulyMobile />
       <CustomerTestimonial />
       <SwitchRating onOpenPopup={openPopup} />
