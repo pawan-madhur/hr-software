@@ -20,6 +20,7 @@ import MainHeader from "@/components/home/main-header";
 import MainFooter from "@/components/home/mainFooter";
 import HeroOperational from "@/components/home/heroOperational";
 import SimplerWorkdays from "@/components/home/softwareTab";
+import FinalSwitch from "@/components/home/final-switch";
 
 export default function Home() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -46,9 +47,10 @@ export default function Home() {
       <IntegrationSection />
       <AddonSection />
       <Recommended />
-      <DownloadTemplate />
+      <DownloadTemplate onOpenPopup={openPopup} />
       <HroneServiceCities />
       <Faqs />
+      <FinalSwitch onOpenPopup={openPopup} />
       <PopupForm isOpen={isPopupOpen} onClose={closePopup} />
       <MainFooter />
     </>

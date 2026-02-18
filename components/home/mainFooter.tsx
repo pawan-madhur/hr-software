@@ -3,7 +3,6 @@ import Script from "next/script";
 export default function MainFooter() {
     return (
         <>
-
             <div className="commune-container">
                 <div className="container container_cus">
                     <div className="cta-section footer-cta-commune">
@@ -13,11 +12,8 @@ export default function MainFooter() {
                         </div>
                         <div className="cta-right">
                             <div className="cta-description">
-                                <p>
-                                    Connect with <strong>6000+ HR leaders</strong>. Swap strategies. Share stories. Learn what's working in real-time.
-                                </p>
+                                <p>Connect with <strong>6000+ HR leaders</strong>. Swap strategies. Share stories. Learn what's working in real-time.</p>
                             </div>
-
                             <a href="https://login.circle.so/sign_up?request_host=hrone-commune.hrone.cloud#email"
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -29,8 +25,7 @@ export default function MainFooter() {
                 </div>
             </div>
             <section className="footer-section">
-                <div className="container hr">
-                    {/* LOGO + NEWSLETTER */}
+                <div className="container container_cus hr">
                     <div className="footer-logo-div">
                         <div className="footer-logo-main">
                             <div>
@@ -41,12 +36,10 @@ export default function MainFooter() {
                                     alt="HROne"
                                 />
                             </div>
-
                             <div className="newsletter-head">
                                 <p className="stay-up">
                                     Stay up-to-date with <strong>HROne Newsletter!</strong>
                                 </p>
-
                                 <div className="newsletter-main">
                                     {/* HubSpot Script */}
                                     <Script
@@ -56,41 +49,38 @@ export default function MainFooter() {
 
                                     <Script id="hubspot-form" strategy="afterInteractive">
                                         {`
-                    if (window.hbspt) {
-                      hbspt.forms.create({
-                        region: "na1",
-                        portalId: "7277696",
-                        formId: "21230932-61eb-4c2c-a353-76934a951e1d"
-                      });
-                    }
-                  `}
+                                            if (window.hbspt) {
+                                                hbspt.forms.create({
+                                                region: "na1",
+                                                portalId: "7277696",
+                                                formId: "21230932-61eb-4c2c-a353-76934a951e1d"
+                                                });
+                                            }
+                                            `}
                                     </Script>
                                 </div>
+                                <p className="cookies-text">
+                                    By providing your information, you hereby consent to the HROne{" "}
+                                    <a
+                                        href="https://hrone.cloud/cookies-policy/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        Cookie Policy
+                                    </a>{" "}
+                                    and{" "}
+                                    <a
+                                        href="https://hrone.cloud/privacy-policy/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        Privacy Policy
+                                    </a>
+                                    .
+                                </p>
                             </div>
                         </div>
-
-                        <p className="cookies-text">
-                            By providing your information, you hereby consent to the HROne{" "}
-                            <a
-                                href="https://hrone.cloud/cookies-policy/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                Cookie Policy
-                            </a>{" "}
-                            and{" "}
-                            <a
-                                href="https://hrone.cloud/privacy-policy/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                Privacy Policy
-                            </a>
-                            .
-                        </p>
                     </div>
-
-                    {/* FOOTER LINKS */}
                     <div className="footer-main">
                         <div className="footer-links">
                             <ul className="about-hrone">
@@ -661,7 +651,7 @@ export default function MainFooter() {
                 </div >
             </section >
             <div className="copyright-section form-popup">
-                <div className="container hr">
+                <div className="container container_cus hr">
                     <div className="copyright-main">
                         <p className="copyright-text">
                             Copyright © 2026. Uneecops Workplace Solutions Pvt. Ltd.

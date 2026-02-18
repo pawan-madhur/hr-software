@@ -1,22 +1,22 @@
 "use client";
- 
+
 import { useState } from "react";
- 
+
 interface FAQItem {
     question: string;
     answer: string;
 }
- 
+
 interface FAQCategory {
     id: string;
     name: string;
     faqs: FAQItem[];
 }
- 
+
 export default function Faqs() {
     const [activeTab, setActiveTab] = useState("hr-software");
     const [openAccordion, setOpenAccordion] = useState<number>(0);
- 
+
     const faqCategories: FAQCategory[] = [
         {
             id: "hr-software",
@@ -50,7 +50,7 @@ export default function Faqs() {
                     question: "I run a small business. Do I require HR software?",
                     answer: "Small businesses often have a single HR handling hiring, payroll, attendance, and record-keeping. HR software reduces workload, brings structure to workflows, and helps manage talent efficiently with minimal monthly investment."
                 }
- 
+
             ]
         },
         {
@@ -110,18 +110,18 @@ export default function Faqs() {
             ]
         }
     ];
- 
+
     const activeCategory = faqCategories.find(cat => cat.id === activeTab) || faqCategories[0];
- 
+
     const handleTabClick = (tabId: string) => {
         setActiveTab(tabId);
         setOpenAccordion(0);
     };
- 
+
     const toggleAccordion = (index: number) => {
         setOpenAccordion(openAccordion === index ? -1 : index);
     };
- 
+
     return (
         <section className="hr-faq-section">
             <div className="container">
@@ -144,7 +144,7 @@ export default function Faqs() {
                         ))}
                     </div>
                 </div>
- 
+
                 <div className="hr-accordion">
                     {activeCategory.faqs.map((faq, index) => (
                         <div key={index} className={`faq-accordion-item ${openAccordion === index ? "open" : ""}`}>

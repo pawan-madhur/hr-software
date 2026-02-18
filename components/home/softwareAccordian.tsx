@@ -585,7 +585,8 @@ export default function SoftwareAccordian() {
                                     </p>
                                 </div>
                                 <div>
-                                    <Image className="corehr" src={CoreHR} alt="core-hr-one" />
+                                    <Image className="corehr" src={CoreHR} alt="core-hr-one" placeholder="empty"
+                                        priority={true} />
                                 </div>
                             </div>
                             <div className="soft_flow_two">
@@ -838,7 +839,7 @@ export default function SoftwareAccordian() {
                                     </p>
                                 </div>
                                 <div>
-                                    <Image src={CoreHR} alt="recruitement-one" />
+                                    <img src="https://hrone.cloud/wp-content/uploads/2023/07/recruitement-1.png" alt="" />
                                 </div>
                             </div>
 
@@ -905,7 +906,7 @@ export default function SoftwareAccordian() {
                                     </p>
                                 </div>
                                 <div>
-                                    <Image src={CoreHR} alt="workforce-three" />
+                                    <img src="https://hrone.cloud/wp-content/uploads/2023/07/workforce-3.png" alt="" />
                                 </div>
                             </div>
 
@@ -971,7 +972,7 @@ export default function SoftwareAccordian() {
                                     </p>
                                 </div>
                                 <div>
-                                    <Image src={CoreHR} alt="attendance-four" />
+                                    <img src="https://hrone.cloud/wp-content/uploads/2023/07/attendance-4.png" alt="" />
                                 </div>
                             </div>
 
@@ -1038,7 +1039,7 @@ export default function SoftwareAccordian() {
                                     </p>
                                 </div>
                                 <div>
-                                    <Image src={CoreHR} alt="payroll-two" />
+                                    <img src="https://hrone.cloud/wp-content/uploads/2023/07/payroll-2.png" alt="" />
                                 </div>
                             </div>
 
@@ -1106,7 +1107,7 @@ export default function SoftwareAccordian() {
                                     </p>
                                 </div>
                                 <div>
-                                    <Image src={CoreHR} alt="expense-one" />
+                                    <img src="https://hrone.cloud/wp-content/uploads/2023/07/expense-1.png" alt="" />
                                 </div>
                             </div>
 
@@ -1173,7 +1174,7 @@ export default function SoftwareAccordian() {
                                     </p>
                                 </div>
                                 <div>
-                                    <Image src={CoreHR} alt="performance-four" />
+                                    <img src="https://hrone.cloud/wp-content/uploads/2023/07/performance-4.png" alt="" />
                                 </div>
                             </div>
 
@@ -1236,7 +1237,7 @@ export default function SoftwareAccordian() {
                                     </p>
                                 </div>
                                 <div>
-                                    <Image src={CoreHR} alt="engagement-one" />
+                                    <img src="https://hrone.cloud/wp-content/uploads/2023/07/engagement-1.png" alt="" />
                                 </div>
                             </div>
 
@@ -1299,7 +1300,7 @@ export default function SoftwareAccordian() {
                                     </p>
                                 </div>
                                 <div>
-                                    <Image src={CoreHR} alt="asset-two" />
+                                    <img src="https://hrone.cloud/wp-content/uploads/2023/07/asset-2.png" alt="" />
                                 </div>
                             </div>
 
@@ -1354,7 +1355,7 @@ export default function SoftwareAccordian() {
 
                                 </div>
                                 <div>
-                                    <Image src={CoreHR} alt="helpdesk" />
+                                    <img src="https://hrone.cloud/wp-content/uploads/2023/07/helpdesk-1.png" alt="" />
                                 </div>
                             </div>
 

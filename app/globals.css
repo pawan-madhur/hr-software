@@ -17,7 +17,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-public-sans);
 }
-
+ 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -525,6 +525,102 @@ select:focus-within {
   transition: background-color 0.3s;
 }
 
+
+
+/* final switch section */
+
+.final-switch {
+  padding-bottom: min(8.3333333333vw, 15vh);
+}
+
+.final-switch-con {
+  background: #E65F46;
+  padding-block: min(5.8333333333vw, 10.5vh) min(5.2083333333vw, 9.375vh);
+  border-radius: min(.6944444444vw, 1.25vh);
+  position: relative;
+}
+
+.final-switch-con .hexagon-svg {
+  position: absolute;
+  top: 7%;
+  left: 0;
+}
+
+.final-switch-con h2 {
+  text-align: center;
+  font-family: var(--font-clash);
+  font-size: 44px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%;
+  color: #fff;
+}
+
+.final-switch-con h2 span {
+  font-weight: 500;
+  color: #ffdc78;
+}
+
+
+.final-switch-con-imagediv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: min(2.3611111111vw, 4.25vh) 0 min(2.2222222222vw, 4vh);
+}
+
+.final-switch-con-imagediv .arrow {
+  max-width: min(5.1388888889vw, 9.25vh);
+  margin-right: min(2.0833333333vw, 3.75vh);
+}
+
+.final-switch-con-imagediv .toggle-img {
+  max-width: min(18.6111111111vw, 33.5vh);
+}
+
+.final-switch-con p {
+  text-align: center;
+  font-family: var(--font-clash);
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  color: #fff;
+  line-height: 120%;
+  font-weight: 600;
+  margin-bottom: min(4.5138888889vw, 8.125vh);
+}
+
+
+.final-switch-con-anchor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.final-switch-con-anchor a {
+  display: inline-block;
+  color: #FFF;
+  font-family: var(--font-clash);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  padding: 19px 38px;
+  border: 1px solid #fff;
+  border-radius: 4px;
+}
+
+.final-switch-con .wave-svg {
+  position: absolute;
+  bottom: 16%;
+  right: 4%;
+}
+
+.final-switch-con-anchor a:hover {
+  background: #d2543e;
+}
+
+
 @media (max-width: 768px) {
   .top-bar-main {
     flex-direction: column;
@@ -598,11 +694,12 @@ select:focus-within {
   filter: drop-shadow(0 10px 8px rgba(0, 0, 0, .14));
 }
 
-.main-header .nav-ul li:hover>.hrone-level-1,
+
 .main-header .nav-ul .hrone-level-1.open {
   display: block;
   content-visibility: visible;
 }
+
 
 .main-header .nav-ul li {
   font-size: min(1.25vw, 2.25vh);
@@ -699,16 +796,7 @@ select:focus-within {
   max-width: 100%;
 }
 
-/* Dropdown - HR Software (full-screen, no scrollbar) */
-/* Override base .hrone-level-1 so this dropdown is full viewport width, not 100% of narrow li */
-.main-header .nav-ul .hrsoftware_dropdown.hrone-level-1 {
-  width: 100vw !important;
-  max-width: 100vw !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  top: 100%;
-  padding-block: 0;
-}
+
 
 .hrsoftware_dropdown {
   position: absolute;
@@ -739,13 +827,6 @@ select:focus-within {
   visibility: visible;
 }
 
-/* Apply dark blurred background for any open top-level dropdown */
-.main-header .nav-ul li:hover>.hrone-level-1 {
-  background: #00251AE5 !important;
-  filter: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.14));
-  backdrop-filter: blur(10px);
-  height: 100vh;
-}
 
 /* HR Resources & other dropdowns - keep scroll when needed */
 .hrresourec_dropdown {
@@ -2002,7 +2083,75 @@ select:focus-within {
     height: auto;
     object-fit: contain;
   }
+
 }
+
+@media screen and (min-width:1024px) {
+  .main-header .nav-ul li:hover>.hrone-level-1 {
+    content-visibility: visible;
+    display: block !important;
+    background: #00251AE5 !important;
+    filter: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.14));
+    backdrop-filter: blur(10px);
+    height: 100vh;
+  }
+
+  .main-header .nav-ul li:hover>section.hrresourec_dropdown.mobile-version.hrone-level-1 {
+    display: none !important;
+  }
+
+
+
+  .main-header .nav-ul .hrsoftware_dropdown.hrone-level-1 {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    top: 100%;
+    padding-block: 0;
+  }
+
+}
+
+
+.result-box-city.result-box-city-popup {
+  position: absolute;
+  width: 100%;
+  max-height: 150px;
+  overflow-y: scroll;
+  z-index: 99999;
+  top: 50px;
+  border: 1px solid #def2eb;
+  border-radius: min(.3472222222vw, .625vh);
+  background: #def2eb;
+}
+
+.result-box-city .city-option {
+  list-style: none;
+  border-radius: min(.2083333333vw, .375vh);
+  padding: min(.6944444444vw, 1.25vh) min(1.0416666667vw, 1.875vh);
+  cursor: pointer;
+  font-size: min(.9722222222vw, 1.75vh);
+  font-family: "Public Sans";
+}
+
+.error-txt.floating-form-alert {
+  opacity: 1;
+  visibility: visible;
+  color: #ff5858;
+  position: absolute;
+  display: block;
+  line-height: 1.5;
+  left: 0;
+  font-size: min(.5555555556vw, 1vh);
+  bottom: -17px;
+  z-index: 99;
+}
+
+.error {
+  border-bottom: 1px solid red !important;
+}
+
 
 @media (max-width: 1024px) {
 
@@ -2083,11 +2232,12 @@ select:focus-within {
     overflow-y: scroll;
     padding-inline: min(8.1081081081vw, 4vh);
     transform: translateX(100%);
-    transition: .3s ease-out;
+    /* transition: .3s ease-out; */
     padding: 0px;
     background: rgba(0, 37, 26, .9);
     backdrop-filter: blur(10px);
   }
+
 
   .main-header .nav-ul .hrone-level-1.open {
     display: block;
@@ -2100,7 +2250,16 @@ select:focus-within {
     width: 100vw !important;
     max-width: 100vw !important;
     left: 0% !important;
+    transform: translateX(100%) !important;
+  }
+
+  .main-header .nav-ul .hrsoftware_dropdown.hrone-level-1.open {
     transform: translateX(0%) !important;
+  }
+
+  section.hrresourec_dropdown.hrone-level-1,
+  section.hrresourec_dropdown.hrone-level-1.open {
+    display: none !important;
   }
 
   .hrsoftware_dropdown_main {
@@ -2190,7 +2349,7 @@ select:focus-within {
     width: 92%;
   }
 
-  .hrresourec_dropdown.mobile-version.hrone-level-1.open ul {
+  .hrresourec_dropdown.mobile-version.hrone-level-1 ul {
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -2219,9 +2378,11 @@ select:focus-within {
     display: block !important;
   }
 
-  /* .hrresourec_dropdown.mobile-version.hrone-level-1.open {
+  .hrresourec_dropdown.mobile-version.hrone-level-1.open {
     display: block !important;
-  } */
+  }
+
+
 
   .hrresourec_dropdown.hrone-level-1.open {
     display: none !important;
@@ -3258,8 +3419,8 @@ select:focus-within {
   font-style: normal;
   font-weight: 500;
   line-height: 1.3;
+  min-height: 136px;
 }
-
 
 .recommended-main-card-content p {
   font-size: 16px;
@@ -3273,7 +3434,7 @@ select:focus-within {
 .workplace-prev,
 .workplace-next {
   position: absolute;
-  top: 50%;
+  top: 46%;
   transform: translateY(-50%);
   width: 56px;
   height: 56px;
@@ -3289,13 +3450,8 @@ select:focus-within {
   transition: opacity 0.2s, transform 0.2s;
 }
 
-.workplace-prev {
-  left: 16px;
-  background: #E3EAE7;
-}
 
 .workplace-next {
-  right: 16px;
   background: #1E6955;
 }
 
@@ -3829,12 +3985,14 @@ select:focus-within {
 }
 
 .workplace-prev {
-  left: 24px;
+  left: -26px;
+  background: #1e6955
 }
 
 .workplace-next {
-  right: 24px;
+  right: -26px;
 }
+
 
 /* download-read */
 .download-ready-con-text a svg {
@@ -4012,7 +4170,7 @@ select:focus-within {
   border-radius: 5px;
   border: 1px solid #A8C5BB;
   background: #FFF;
-  font-family: var(--font-clash);
+  font-family: var(--font-public-sans);
 }
 
 .faq-tab:hover {
@@ -4041,10 +4199,9 @@ select:focus-within {
 }
 
 .faq-accordion-item.open {
-  background: #F5F5DC;
+  background: #fffaf0;
   border-radius: 8px;
   border: none;
-  /* margin-bottom: 8px; */
   padding: 0;
 }
 
@@ -4053,7 +4210,7 @@ select:focus-within {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 42px 21px;
+  padding: 42px 36px;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -4076,7 +4233,7 @@ select:focus-within {
 }
 
 .faq-accordion-button p {
-  font-family: var(--font-clash);
+  font-family: var(--font-public-sans);
   font-size: 25px;
   font-weight: 600;
   color: #535353;
@@ -4117,8 +4274,9 @@ select:focus-within {
   line-height: 1.6;
   color: #272727;
   margin: 0;
-  padding: 21px;
+  padding: 20px 40px 60px 40px;
 }
+
 
 .faq-panel.open p {
   color: #272727;
@@ -4150,15 +4308,6 @@ select:focus-within {
   width: 270px;
 }
 
-.final-switch-con p {
-  text-align: center;
-  font-family: var(--font-clash);
-  font-size: 30px;
-  font-style: normal;
-  font-weight: 400;
-  margin-bottom: 60px;
-  line-height: 120%;
-}
 
 .switch-and-save {
   padding-block: min(7.8472222222vw, 14.125vh);
@@ -4420,13 +4569,12 @@ select:focus-within {
 }
 
 .formoverlay-inner-container-h2 {
-  font-size: 42px;
-  font-weight: 700;
+  font-size: 48px;
+  font-weight: 600;
   margin-bottom: 25px;
   text-align: center;
   color: #E56046;
   font-family: var(--font-clash);
-  letter-spacing: -0.5px;
 }
 
 .demo-form-image-flex {
@@ -4436,7 +4584,7 @@ select:focus-within {
 }
 
 .demo-form-image-flex-left {
-  width: 70%;
+  width: 65%;
 }
 
 .demo-form-image-main {
@@ -4471,7 +4619,7 @@ select:focus-within {
 }
 
 .demo-form-image-flex-right {
-  width: 30%;
+  width: 35%;
 }
 
 .form-section {
@@ -4727,16 +4875,17 @@ select:focus-within {
 }
 
 .input-btn-green-submit {
-  background: #28a745;
+  background: #02563D;
   color: #fff;
   box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3);
 }
 
+
 .input-btn-green-submit:hover {
-  background: #218838;
   box-shadow: 0 4px 12px rgba(40, 167, 69, 0.4);
   transform: translateY(-1px);
 }
+
 
 .input-btn-green-submit:active {
   transform: translateY(0);
@@ -4755,7 +4904,7 @@ select:focus-within {
   display: flex;
   gap: 20px;
   justify-content: center;
-  margin-top: min(4.1666666667vw, 7.5vh);
+  margin-top: 24px;
 }
 
 
@@ -4987,7 +5136,10 @@ select:focus-within {
     font-size: 14px;
     line-height: 22px;
     width: 100%;
+    min-height: auto;
+
   }
+
 
   .recommended-main-card-content p {
     padding: 0 20px 20px;
@@ -5360,11 +5512,6 @@ select:focus-within {
   .sft_btn1 {
     margin-left: 10px;
   }
-
-  .final-switch-con {
-    padding: 40px 0px !important;
-  }
-
 
   .soft_workflow_main .wf-main-title.active {
     color: #1E6955;
@@ -5960,6 +6107,7 @@ select:focus-within {
 
   .recommended-main-card-content a {
     box-shadow: unset;
+    border-radius: 0px 0px 5px 5px;
   }
 
 
@@ -6722,12 +6870,85 @@ select:focus-within {
     font-size: 16px;
   }
 
-  .w-50 {
-    width: 100%;
-    margin-bottom: 12px;
+  .w-50:first-of-type {
+    margin-right: 12px;
   }
 
-  .w-50:first-of-type {
-    margin-right: 0;
+  .demo-form-image-multilogo {
+    flex-wrap: wrap;
   }
+
+  .demo-form-image-multilogo img {
+    width: 33%;
+  }
+
+  .simpler-workdays-faq .faq-hr .faq-start .hr-faq-accordion:after {
+    transform: scale(0.7);
+  }
+
+
+  /* .final-switch */
+  .final-switch {
+    padding-bottom: min(13.5135135135vw, 6.6666666667vh);
+  }
+
+  .final-switch-con .hexagon-svg {
+    display: none;
+  }
+
+  .final-switch-con h2 {
+    font-size: min(5.4054054054vw, 2.6666666667vh);
+    line-height: min(6.4864864865vw, 3.2vh);
+  }
+
+  .final-switch-con-imagediv .arrow {
+    max-width: min(13.5135135135vw, 6.6666666667vh);
+    margin-right: min(4.0540540541vw, 2vh);
+  }
+
+  .final-switch-con-imagediv .toggle-img {
+    max-width: 30%;
+  }
+
+  .final-switch-con p {
+    font-size: min(4.3243243243vw, 2.1333333333vh);
+    line-height: min(5.4054054054vw, 2.6666666667vh);
+  }
+
+  .final-switch-con-anchor a {
+    font-size: min(4.3243243243vw, 2.1333333333vh);
+    padding: min(3.2432432432vw, 1.6vh) min(5.4054054054vw, 2.6666666667vh);
+  }
+
+  .final-switch-con .wave-svg {
+    width: 12%;
+  }
+
+  .final-switch-con {
+    padding: 40px 0px !important;
+    max-width: min(84.8611111111vw, 152.75vh) !important;
+  }
+
+
+  .error-txt.floating-form-alert {
+    font-size: min(2.7027027027vw, 1.3333333333vh);
+    line-height: 1.5;
+    left: 0;
+    bottom: -20px;
+  }
+
+  .floating-form-control {
+    width: 100%;
+    margin-bottom: 24px;
+  }
+
+  .floating-form-input-group {
+    margin-bottom: 30px;
+  }
+
+  .result-box-city .city-option {
+    padding: min(2.7027027027vw, 1.3333333333vh) min(4.0540540541vw, 2vh);
+    font-size: min(3.7837837838vw, 1.8666666667vh);
+  }
+
 }

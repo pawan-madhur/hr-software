@@ -66,10 +66,24 @@ export default function MainHeader({ onOpenPopup }: MainHeaderProps) {
                 <li
                   className="level-0"
                   rel="hr-software"
-                  onMouseEnter={() => setOpenDropdown("hr-software")}
-                  onMouseLeave={() => setOpenDropdown(null)}
+                  // DESKTOP ONLY (hover)
+                  onMouseEnter={() => {
+                    if (!mobileOpen) setOpenDropdown("hr-software");
+                  }}
+                  onMouseLeave={() => {
+                    if (!mobileOpen) setOpenDropdown(null);
+                  }}
                 >
-                  <span className="level-1-menu">
+                  <span className="level-1-menu"
+                    onClick={(e) => {
+                      if (mobileOpen) {
+                        e.preventDefault();
+                        setOpenDropdown(
+                          openDropdown === "hr-software" ? null : "hr-software"
+                        );
+                      }
+                    }}
+                  >
                     <a href="#">HR Software</a>
                     <img
                       className="vector-img-1"
@@ -307,10 +321,24 @@ export default function MainHeader({ onOpenPopup }: MainHeaderProps) {
                 <li
                   className="level-0"
                   rel="hr-resources"
-                  onMouseEnter={() => setOpenDropdown("hr-resources")}
-                  onMouseLeave={() => setOpenDropdown(null)}
+                  // DESKTOP ONLY (hover)
+                  onMouseEnter={() => {
+                    if (!mobileOpen) setOpenDropdown("hr-resources");
+                  }}
+                  onMouseLeave={() => {
+                    if (!mobileOpen) setOpenDropdown(null);
+                  }}
                 >
-                  <span className="level-1-menu">
+                  <span className="level-1-menu"
+                    onClick={(e) => {
+                      if (mobileOpen) {
+                        e.preventDefault();
+                        setOpenDropdown(
+                          openDropdown === "hr-resources" ? null : "hr-resources"
+                        );
+                      }
+                    }}
+                  >
                     <a href="#">HR Resources</a>
                     <img
                       className="vector-img-1"
@@ -768,10 +796,24 @@ export default function MainHeader({ onOpenPopup }: MainHeaderProps) {
                 <li
                   className="level-0"
                   rel="about"
-                  onMouseEnter={() => setOpenDropdown("about")}
-                  onMouseLeave={() => setOpenDropdown(null)}
+                  // DESKTOP ONLY (hover)
+                  onMouseEnter={() => {
+                    if (!mobileOpen) setOpenDropdown("about");
+                  }}
+                  onMouseLeave={() => {
+                    if (!mobileOpen) setOpenDropdown(null);
+                  }}
                 >
-                  <span className="level-1-menu">
+                  <span className="level-1-menu"
+                    onClick={(e) => {
+                      if (mobileOpen) {
+                        e.preventDefault();
+                        setOpenDropdown(
+                          openDropdown === "about" ? null : "about"
+                        );
+                      }
+                    }}
+                  >
                     <a href={`${BASE_URL}/why-hrone/`}>About</a>
                     <img
                       className="vector-img-1"
