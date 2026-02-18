@@ -46,7 +46,7 @@ export default function Home() {
       <IntegrationSection />
       <AddonSection />
       <Recommended />
-      <DownloadTemplate />
+      <DownloadTemplate onOpenPopup={openPopup} />
       <HroneServiceCities />
       <Faqs />
       <PopupForm isOpen={isPopupOpen} onClose={closePopup} />
