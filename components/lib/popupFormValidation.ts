@@ -15,7 +15,7 @@ export function validatePopupStep1() {
 
     const emailDomain = email.split("@")[1]?.trim().toLowerCase();
 
-    // EMAIL
+    // EMAIL VALIDATION
     if (!email || !email.includes("@") || !emailDomain || blockedDomains.some(domain => emailDomain.includes(domain.toLowerCase()))) {
         emailInput.classList.add("error");
         document.querySelector(".pop_email_error")!.textContent = "Please enter a valid work email.";
