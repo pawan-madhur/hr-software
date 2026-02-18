@@ -40,7 +40,7 @@ export default function Home() {
       {/* <Hero onOpenPopup={openPopup} /> */}
       <HeroOperational onOpenPopup={openPopup} />
       <SimplerWorkdays />
-      {/* <SoftwareAccordian /> */}
+      {/* <SoftwareAccordian /> */} 
       <TrulyMobile />
       <CustomerTestimonial />
       <SwitchRating onOpenPopup={openPopup} />
