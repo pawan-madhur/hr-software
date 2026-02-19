@@ -14,9 +14,14 @@ export function validatePopupStep1() {
     const emp = empSelect.value;
 
     const emailDomain = email.split("@")[1]?.trim().toLowerCase();
+    // Match blocked domains by exact segment (e.g. "mail" blocks mail.com, not gssmail.com)
+    const domainSegments = emailDomain ? emailDomain.split(".") : [];
+    const isBlockedDomain = domainSegments.some(segment =>
+        blockedDomains.some(domain => segment === domain.toLowerCase())
+    );
 
     // EMAIL VALIDATION
-    if (!email || !email.includes("@") || !emailDomain || blockedDomains.some(domain => emailDomain.includes(domain.toLowerCase()))) {
+    if (!email || !email.includes("@") || !emailDomain || isBlockedDomain) {
         emailInput.classList.add("error");
         document.querySelector(".pop_email_error")!.textContent = "Please enter a valid work email.";
         isValid = false;

@@ -6,6 +6,53 @@ import Image from "next/image";
 import { validatePopupStep1, validatePopupStep2 } from "../lib/popupFormValidation";
 import { cities } from "../lib/cities";
 
+const HUBSPOT_PORTAL_ID = "7277696";
+const HUBSPOT_FORM_GUID = "6a8e8749-b385-4c50-b604-0a4564eeb452";
+const HUBSPOT_API_URL = `https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_FORM_GUID}`;
+
+function getHubspotCookie(): string | undefined {
+  if (typeof document === "undefined") return undefined;
+  const match = document.cookie.match(/hubspotutk=([^;]+)/);
+  return match ? match[1] : undefined;
+}
+
+function getUtmParams(): Record<string, string> {
+  if (typeof window === "undefined") return {};
+  const params = new URLSearchParams(window.location.search);
+  return {
+    utm_source: params.get("utm_source") || "",
+    utm_medium: params.get("utm_medium") || "",
+    utm_campaign: params.get("utm_campaign") || "",
+    utm_content: params.get("utm_content") || "",
+    utm_term: params.get("utm_term") || "",
+  };
+}
+
+/** Sanitize string for HubSpot: trim, limit length, strip control chars */
+function sanitizeString(value: string, maxLength: number = 255): string {
+  if (value == null || typeof value !== "string") return "";
+  return value.replace(/[\x00-\x1F\x7F]/g, "").trim().slice(0, maxLength);
+}
+
+/** Get validated form values from DOM (same source as validation) and sanitize */
+function getValidatedFormPayload(stateValue: string) {
+  if (typeof document === "undefined") return null;
+  const emailInput = document.getElementById("popup_official_email") as HTMLInputElement | null;
+  const phoneInput = document.getElementById("popup_phone_nu") as HTMLInputElement | null;
+  const empSelect = document.getElementById("popup_no_of_employee") as HTMLSelectElement | null;
+  const nameInput = document.getElementById("popup_employee_name") as HTMLInputElement | null;
+  const cityInput = document.getElementById("input-box-city-popup") as HTMLInputElement | null;
+  if (!emailInput || !phoneInput || !empSelect || !nameInput || !cityInput) return null;
+
+  const email = sanitizeString(emailInput.value, 100).toLowerCase();
+  const phone = (phoneInput.value || "").replace(/\D/g, "").slice(0, 10);
+  const emp = (empSelect.value || "").trim();
+  const name = sanitizeString(nameInput.value, 255);
+  const city = sanitizeString(cityInput.value, 255);
+  const state = sanitizeString(stateValue, 100);
+
+  return { email, phone, emp, name, city, state };
+}
 
 interface PopupFormProps {
   isOpen: boolean;
@@ -22,7 +69,10 @@ export default function PopupForm({ isOpen, onClose }: PopupFormProps) {
     popup_number_of_employee_v1: "",
     popup_name: "",
     city_popup: "",
+    state: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
 
   useEffect(() => {
     if (isOpen) {
@@ -82,11 +132,103 @@ export default function PopupForm({ isOpen, onClose }: PopupFormProps) {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const isValid = validatePopupStep2();
-    if (!isValid) {
+
+    // Run both step 1 and step 2 validations before sending to HubSpot
+    const step1Valid = validatePopupStep1();
+    const step2Valid = validatePopupStep2();
+    if (!step1Valid || !step2Valid) return;
+
+    const payload = getValidatedFormPayload(formData.state);
+    if (!payload) return;
+
+    // Final server-bound checks (same rules as validation)
+    const phoneValid = /^[6-9]\d{9}$/.test(payload.phone);
+    const emailValid =
+      payload.email.includes("@") &&
+      payload.email.length > 3 &&
+      payload.email.split("@")[1]?.length > 0;
+    if (!phoneValid || !emailValid || !payload.emp || !payload.name || !payload.city) {
+      setSubmitMessage({ type: "error", text: "Please fix the errors and try again." });
       return;
     }
-    console.log("ALL FORM DATA:", formData);
+
+    setSubmitMessage(null);
+    setIsSubmitting(true);
+
+    const nameParts = payload.name.split(/\s+/).filter(Boolean);
+    const firstname = sanitizeString(nameParts[0] || "", 40);
+    const lastname = sanitizeString(nameParts.slice(1).join(" "), 40);
+
+    const utm = getUtmParams();
+    const hubspotCookie = getHubspotCookie();
+
+    const hubspotData = {
+      submittedAt: new Date().toISOString(),
+      fields: [
+        { objectTypeId: "0-1", name: "firstname", value: firstname },
+        { objectTypeId: "0-1", name: "lastname", value: lastname },
+        { objectTypeId: "0-1", name: "email", value: payload.email },
+        { objectTypeId: "0-1", name: "phone", value: "+91" + payload.phone },
+        { objectTypeId: "0-1", name: "city", value: payload.city },
+        { objectTypeId: "0-1", name: "state_sap__cloned_", value: payload.state },
+        { objectTypeId: "0-1", name: "country", value: "India" },
+        { objectTypeId: "0-1", name: "number_of_employee_v1", value: payload.emp },
+        { objectTypeId: "0-1", name: "utm_source", value: sanitizeString(utm.utm_source, 255) },
+        { objectTypeId: "0-1", name: "utm_medium", value: sanitizeString(utm.utm_medium, 255) },
+        { objectTypeId: "0-1", name: "utm_campaign", value: sanitizeString(utm.utm_campaign, 255) },
+        { objectTypeId: "0-1", name: "utm_content", value: sanitizeString(utm.utm_content, 255) },
+        { objectTypeId: "0-1", name: "utm_term", value: sanitizeString(utm.utm_term, 255) },
+      ],
+      context: {
+        hutk: hubspotCookie,
+        pageUri: typeof window !== "undefined" ? window.location.href : "",
+        pageName: typeof document !== "undefined" ? document.title : "",
+      },
+      legalConsentOptions: {
+        consent: {
+          consentToProcess: true,
+          text: "I agree to allow HROne to store and process my personal data.",
+        },
+      },
+    };
+
+    fetch(HUBSPOT_API_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(hubspotData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setIsSubmitting(false);
+        setFormData({
+          popup_official_email: "",
+          popup_phone: "",
+          popup_number_of_employee_v1: "",
+          popup_name: "",
+          city_popup: "",
+          state: "",
+        });
+        setCurrentStep(1);
+        setIsCitySelected(false);
+
+        const message = data.inlineMessage || "Thank you for your submission!";
+        setSubmitMessage({ type: "success", text: message });
+
+        const thankYouUrl =
+          (typeof window !== "undefined" && (window as any).hronePopupForm?.thankYouUrl) ||
+          (typeof window !== "undefined" ? `${window.location.origin}/thankyou` : "/thankyou");
+        setTimeout(() => {
+          window.location.href = thankYouUrl;
+        }, 1000);
+      })
+      .catch((error) => {
+        console.error("Error submitting form:", error);
+        setIsSubmitting(false);
+        setSubmitMessage({
+          type: "error",
+          text: "There was an error submitting your form. Please try again.",
+        });
+      });
   };
 
 
@@ -150,6 +292,12 @@ export default function PopupForm({ isOpen, onClose }: PopupFormProps) {
               </div>
               <div className="demo-form-image-flex-right">
                 <div className="form-section floating-form-yellow-white">
+                  {submitMessage && (
+                    <div className={`hm-banner-msg ${submitMessage.type === "success" ? "success-msg" : "error-msg"}`}>
+                      <h2>{submitMessage.type === "success" ? "Success!" : "Error!"}</h2>
+                      <p>{submitMessage.text}</p>
+                    </div>
+                  )}
                   <form id="popupForm" className="propel-eventfrom popupformresponse" onSubmit={handleSubmit}>
                     <fieldset style={{ display: currentStep === 1 ? "block" : "none" }}>
                       <input type="text" className="hidden" value="https://hrone.cloud/hr-software/" name="popup_permalink" readOnly />
@@ -304,7 +452,7 @@ export default function PopupForm({ isOpen, onClose }: PopupFormProps) {
                               key={index}
                               className="city-option"
                               onClick={() => {
-                                setFormData((prev) => ({ ...prev, city_popup: item.city }));
+                                setFormData((prev) => ({ ...prev, city_popup: item.city, state: item.state }));
                                 setFilteredCities([]);
                                 setIsCitySelected(true); // ✅ valid selection
                               }}
@@ -343,10 +491,11 @@ export default function PopupForm({ isOpen, onClose }: PopupFormProps) {
                         className="submit input-btn-green-submit w-50"
                         id="popupFormSubmit"
                         value="Submit"
+                        disabled={isSubmitting}
                       />
                     </fieldset>
                   </form>
-                  <div id="loaderpopup2" className="loader-main">
+                  <div id="loaderpopup2" className="loader-main" style={{ display: isSubmitting ? "flex" : "none" }}>
                     <div className="loader"></div>
                   </div>
                 </div>
